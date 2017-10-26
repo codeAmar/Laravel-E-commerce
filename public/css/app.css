@@ -10,6 +10,23 @@ img{
     justify-content: space-around;
 }
 
+.my-padding-top{
+    padding-top: 5%;
+    clear: both;
+}
+
+.my-float-right{
+    float: right;
+}
+
+
+@media screen and (max-width: 767px) {
+    #myCarousel{
+        display: none;
+    }
+
+}
+
 /*footer styles///////////////////////////////////////*/
 #myFooter {
     background-color: #3c3d41;
