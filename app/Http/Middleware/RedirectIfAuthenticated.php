@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Session;
 
 class RedirectIfAuthenticated
 {
@@ -20,6 +21,14 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             return redirect('/home');
         }
+//        if (Auth::guard($guard)->guest()) {
+//            if ($request->ajax() || $request->wantsJson()) {
+//                return response('Unauthorized.', 401);
+//            } else {
+//                Session::put('oldUrl', $request->url());
+//                return redirect()->route('user.signin');
+//            }
+//        }
 
         return $next($request);
     }
