@@ -15,16 +15,31 @@
                 <li class="active"><a href="{{ route('index') }}">Home</a></li>
                 <li><a href="{{ route('about') }}">About</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa {{ Session::has('wish')? "fa-heart":"fa-heart-o" }}" aria-hidden="true"></i>
+                        <span class="  {{ Session::has('wish')? "badge alert-danger":"" }}"> {{Session::has('wish') ? Session::get('wish')->totalWishQuantity : ""}}</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="badge alert-danger">{{Session::has('cart') ? Session::get('cart')->totalCartQuantity : ""}}</span>
+                    </a>
+                </li>
+
                 <li class="  dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Account <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-tasks" aria-hidden="true"></i>
+                        <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         @if(!Auth::check())
-                        <li><a href="{{ route('user.signIn') }}"><span>Sign in</span><i
-                                        class="fa fa-sign-in my-float-right" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('user.signIn') }}"><span>Sign in</span><i
+                                            class="fa fa-sign-in my-float-right" aria-hidden="true"></i></a></li>
 
-                        <li><a href="{{ route('user.signUp') }}"><span>Sign up </span><i
-                                        class="fa fa-user-plus my-float-right" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('user.signUp') }}"><span>Sign up </span><i
+                                            class="fa fa-user-plus my-float-right" aria-hidden="true"></i></a></li>
                         @endif
 
 
@@ -45,8 +60,7 @@
                         @endif
                     </ul>
                 </li>
-                <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span class="badge alert-danger">5</span></a></li>
+
             </ul>
 
         </div><!--/.nav-collapse -->

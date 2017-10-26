@@ -75,8 +75,8 @@
                     <li class="list-group-item">Author : {{$comic->author}}</li>
                 </ul>
                 <div class="card-body my-card-body-style">
-                    <a href="#" class="card-link text-warning">Add to Wishlist</a>
-                    <a href="#" class="btn btn-success">Buy</a>
+                    <a href="{{route('product.addToWish',['id'=> $comic->id])}}" class="card-link text-warning">Add to Wishlist</a>
+                    <a href="{{route('product.addToCart',['id'=> $comic->id])}}" class="btn btn-success">Buy</a>
                 </div>
             </div>
 

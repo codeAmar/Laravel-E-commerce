@@ -22,6 +22,11 @@
 
     Route::get('/contactFormSubmit','contactController@getFormSubmit')->name('contactFormSubmit');
 
+    Route::get('/addToCart/{id}','productController@getAddToCart')->name('product.addToCart');
+
+    Route::get('/addToWish/{id}','wishController@getAddToWish')->name('product.addToWish');
+
+
 
 Route::group(['middleware' => 'guest'], function () {
 
